@@ -9,6 +9,7 @@ The settings about React.js are written according to <https://patrickskiba.com/e
 ```sh
 $ https://github.com/eshamster/react-devel.git
 $ cd react-devel
+$ --- # Copy your SSH key file for GitHub to the current directory.
 $ cp setenv.in setenv
 $ vim setenv # properly edit parameters
 $ ./run.sh

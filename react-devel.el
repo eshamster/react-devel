@@ -18,6 +18,8 @@
 
 (add-hook 'js-mode-hook #'setup-tide-mode)
 
+(add-to-list 'auto-mode-alist '("\\.tsx?\\'" . javascript-mode))
+
 ;; --- company --- ;;
 
 (use-package company

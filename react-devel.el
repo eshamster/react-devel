@@ -12,13 +12,15 @@
   (tide-hl-identifier-mode +1)
   (company-mode +1)
   (setq tab-width 2
-        js-indent-level 2))
+        js-indent-level 2
+        typescript-indent-level 2))
 
 (setq company-tooltip-align-annotations t)
 
 (add-hook 'js-mode-hook #'setup-tide-mode)
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
 
-(add-to-list 'auto-mode-alist '("\\.tsx?\\'" . javascript-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-mode))
 
 ;; --- company --- ;;
 

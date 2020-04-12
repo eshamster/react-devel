@@ -12,7 +12,8 @@ COPY react-devel.el ${emacs_home}/site-lisp/
 RUN emacs --batch --load ${emacs_home}/init.el
 
 RUN echo "git config --global user.name \"\${GITHUB_USER_NAME}\"" >> /root/.profile && \
-    echo "git config --global user.email \"\${GITHUB_USER_EMAIL}\"" >> /root/.profile
+    echo "git config --global user.email \"\${GITHUB_USER_EMAIL}\"" >> /root/.profile && \
+    echo "export LANG=C.UTF-8" >> /root/.profile
 
 ARG ssh_home=/root/.ssh
 RUN mkdir ${ssh_home} && \

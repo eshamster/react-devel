@@ -22,6 +22,16 @@
 
 (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-mode))
 
+(defun toggle-ts-and-js-mode ()
+  (interactive)
+  (let ((mode (format "%s" major-mode)))
+    (cond ((string= mode "typescript-mode")
+           (js-mode))
+          ((string= mode "js-mode")
+           (typescript-mode)))))
+
+(global-set-key (kbd "C-c m t") 'toggle-ts-and-js-mode)
+
 ;; --- company --- ;;
 
 (use-package company

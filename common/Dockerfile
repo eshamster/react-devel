@@ -5,7 +5,7 @@ RUN apk add --no-cache npm git && \
     npm add -g standardx
 
 ARG emacs_home=/root/.emacs.d
-ARG dotfiles_dir=/root/react-devel/dotfiles/others/react-devel
+ARG dotfiles_dir=/root/react-devel/common/dotfiles/others/react-devel
 
 RUN mkdir -p ${emacs_home}/site-lisp/
 

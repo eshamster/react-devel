@@ -6,11 +6,26 @@ The settings about React.js are written according to <https://patrickskiba.com/e
 
 ## Usage
 
+The running depends on [direnv](https://github.com/direnv/direnv)
+
 ```sh
 $ https://github.com/eshamster/react-devel.git
 $ cd react-devel
 $ --- # Copy your SSH key file for GitHub to the current directory.
-$ cp setenv.in setenv
+$ cp .envrc.local.sample .envrc.local
 $ vim setenv # properly edit parameters
-$ ./run.sh
+$ make dev/build
+$ make dev/run
 ```
+
+## Package
+
+Docker image built from the "common/" directory is pushed to ghcr.io
+
+https://github.com/eshamster/react-devel/pkgs/container/react-devel
+
+There are the following tags.
+
+- `latest`: built from `master` branch
+- `develop`: built from other branches
+- others: built from a tag

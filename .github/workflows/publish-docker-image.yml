@@ -30,4 +30,4 @@ jobs:
           context: .
           file: common/Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository }}:"${{ steps.decide-tag.outputs.DOCKER_TAG_NAME }}"
+          tags: ghcr.io/${{ github.repository }}:${{ steps.decide-tag.outputs.DOCKER_TAG_NAME }}

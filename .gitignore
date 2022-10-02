@@ -1,3 +1,5 @@
-work/
-setenv
+work/*
+!work/.gitkeep
 id_rsa
+.envrc.local
+*.swp

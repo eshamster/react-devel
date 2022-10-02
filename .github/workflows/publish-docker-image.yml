@@ -1,0 +1,33 @@
+name: Publish Common Docker Image
+on: push
+env:
+  REGISTORY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+jobs:
+  build-and-push-image:
+    name: Push Docker image to ghcr.io
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Login to ghcr.io
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Decide tag name
+        run: ./.github/decide_tag.sh
+        id: decide-tag
+      - name: Build and Push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: common/Dockerfile
+          push: true
+          tags: ghcr.io/${{ github.repository }}:${{ steps.decide-tag.outputs.DOCKER_TAG_NAME }}

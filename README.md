@@ -1,3 +1,5 @@
+[![Publish Common Docker Image](https://github.com/eshamster/react-devel/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/eshamster/react-devel/actions/workflows/publish-docker-image.yml)
+
 # React Devel 
 
 The react-devel is my development environment for React.js on Docker with Emacs.

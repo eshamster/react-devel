@@ -24,12 +24,10 @@ jobs:
       - name: Decide tag name
         run: ./.github/decide_tag.sh
         id: decide-tag
-      - name: Try variable
-        run: echo "${{ steps.decide-tag.outputs.DOCKER_TAG_NAME }}"
       - name: Build and Push Docker image
         uses: docker/build-push-action@v3
         with:
           context: .
           file: common/Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository }}:latest
+          tags: ghcr.io/${{ github.repository }}:"${{ steps.decide-tag.outputs.DOCKER_TAG_NAME }}"
